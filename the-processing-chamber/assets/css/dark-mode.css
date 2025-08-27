@@ -1,0 +1,63 @@
+/* Additional dark mode styles */
+.dark-mode .alert {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode .form-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode table {
+    background-color: var(--card-bg);
+}
+
+.dark-mode table th {
+    background-color: var(--primary);
+    color: white;
+}
+
+.dark-mode .product-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode .category-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode .search-bar input {
+    background-color: var(--body-bg);
+    color: var(--body-text);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group select,
+.dark-mode .form-group textarea {
+    background-color: var(--body-bg);
+    color: var(--body-text);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode .breadcrumb a {
+    color: var(--secondary);
+}
+
+.dark-mode .breadcrumb span {
+    color: var(--body-text);
+}
+
+/* Mobile navigation improvements for dark mode */
+@media (max-width: 992px) {
+    .dark-mode .sidebar {
+        background-color: var(--nav-bg);
+    }
+    
+    .dark-mode .nav-toggle {
+        background-color: var(--primary);
+        color: white;
+    }
+}
