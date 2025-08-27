@@ -3,8 +3,8 @@
  * admin/orders.php — Orders list and actions (admin)
  *
  * Simple admin list for orders with optional filters. Actions (status updates)
-+ * are handled at the top of the file before rendering to allow redirects.
-+ */
+ * are handled at the top of the file before rendering to allow redirects.
+ */
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/functions.php';
@@ -183,6 +183,7 @@ $page_title = "Manage Orders";
                                     case 'shipped': echo 'var(--primary);'; break;
                                     case 'delivered': echo 'var(--success);'; break;
                                     case 'cancelled': echo 'var(--danger);'; break;
+                                    case 'refunded': echo 'var(--secondary);'; break;
                                     default: echo 'var(--gray);';
                                 }
                                 ?>

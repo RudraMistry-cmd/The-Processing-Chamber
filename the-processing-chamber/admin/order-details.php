@@ -1,3 +1,4 @@
+<?php
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/functions.php';
@@ -17,7 +18,7 @@ $order_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 // Handle status update before any output so header() works
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
     $newStatus = trim((string)($_POST['status'] ?? ''));
-    $allowed = ['pending','processing','shipped','completed','cancelled','refunded'];
+    $allowed = ['pending','processing','shipped','delivered','cancelled','refunded'];
     if (in_array($newStatus, $allowed, true)) {
         $u = $pdo->prepare("UPDATE orders SET status = ?, updated_at = NOW() WHERE id = ?");
         $u->execute([$newStatus, $order_id]);
@@ -96,7 +97,7 @@ try {
     echo '<button onclick="window.print();" class="btn">Print</button>';
     echo '<form method="POST" style="display:inline-block; margin:0;">';
     echo '<select name="status" style="padding:6px; margin-left:6px;">';
-    $statuses = ['pending','processing','shipped','completed','cancelled','refunded'];
+    $statuses = ['pending','processing','shipped','delivered','cancelled','refunded'];
     foreach ($statuses as $s) {
         $sel = ($s === ($order['status'] ?? '')) ? ' selected' : '';
         echo "<option value=\"".htmlspecialchars($s)."\"{$sel}>".ucfirst($s)."</option>";
